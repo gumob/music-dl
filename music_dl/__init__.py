@@ -57,7 +57,7 @@ def main():
     print(pformat(args))
     print()
     # Execute download
-    with MusicDL(
+    mdl = MusicDL(
             download_url=args.url,
             working_dir=args.dir,
             audio_codec=args.codec,
@@ -72,5 +72,5 @@ def main():
             no_compilation=args.no_compilation,
             open_dir=args.open_dir,
             verbose=args.verbose
-    ) as mdl:
-        mdl.download()
+    )
+    mdl.download()
