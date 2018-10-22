@@ -27,7 +27,7 @@ def requirements(filename):
 
 setup(
     name='music-dl',
-    version='0.1.3',
+    version='0.1.4',
     description='Command line tool to download music from YouTube and SoundCloud',
     long_description=read_file('README.md'),
     url='https://github.com/gumob/music-dl',
