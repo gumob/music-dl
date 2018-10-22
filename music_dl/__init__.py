@@ -43,7 +43,7 @@ def main():
         epilog=progver
     )
     parser.add_argument('-u', '--url', help='URL to download. Without this argument, URL is read from clipboard.', type=str)
-    parser.add_argument('-d', '--dir', help='Full path to download directory. Default value is {}.'.format(default_dir), type=str)
+    parser.add_argument('-d', '--dir', help='Path to working directory. Default value is {}.'.format(default_dir), type=str)
     parser.add_argument('-ac', '--codec', help='Preferred audio codec. [available=m4a,mp3,flac default=m4a]', type=str, default='m4a')
     parser.add_argument('-ab', '--bitrate', help='Preferred audio bitrate. [default=198]', type=int, default=198)
     parser.add_argument('-ps', '--playlist-start', help='Index specifying playlist item to start at. [default=1 (index of first song on playlist)]', type=int, default=1)

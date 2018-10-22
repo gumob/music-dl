@@ -5,7 +5,7 @@
 
 # Overview
 
-**Music Downloader** is the command line tool to download audio from YouTube and SoundCloud.<br/>
+**Music Downloader** is the command line tool to download music from YouTube and SoundCloud.<br/>
 This package requires the Python interpreter 3.4+ and tested only on Mac OS X Mojave.<br/>
 It is released to the public domain, which means you can modify it, redistribute it or use it however you like.
 
@@ -39,9 +39,9 @@ $ music-dl --help
 
 -u, --url               URL to download. Without this argument, URL is read
                         from clipboard.
--d, --dir               Full path to download directory. [default="~/Music/Downloads"]
+-d, --dir               Path to working directory. [default="~/Music/Downloads"]
 -ac, --codec            Preferred audio codec.
-                        [available="m4a", "mp3", "flac" default=m4a]
+                        [available=m4a,mp3,flac default=m4a]
 -ab, --bitrate'         Preferred audio bitrate. [default=198]
 -ps, --playlist-start   Index specifying playlist item to start at.
                         [default=1 (index of first song on playlist)]
