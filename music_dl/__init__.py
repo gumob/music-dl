@@ -9,7 +9,7 @@ import pkg_resources
 
 from music_dl.MusicDL import MusicDL
 
-__version__ = '0.1.7'
+__version__ = '0.1.8'
 __license__ = 'MIT'
 __author__ = 'Gumob'
 __author_email__ = 'hello@gumob.com'
@@ -52,6 +52,9 @@ def main():
     args.url = args.url if args.url is not None else clipboard.paste()
     args.dir = args.dir if args.dir is not None else default_dir
 
+    print()
+    print(args)
+    print()
     # Execute download
     with MusicDL(
             download_url=args.url,
