@@ -1,7 +1,6 @@
-clipboard==0.0.4
-colorama==0.4.0
-mutagen==1.41.1
-pathlib==1.0.1
-python-magic==0.4.15
-tldextract==2.2.0
-youtube-dl==2018.10.5
+clipboard
+colorama
+mutagen
+python-magic
+tldextract
+youtube-dl
