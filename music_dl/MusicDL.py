@@ -6,9 +6,10 @@ import logging
 import os
 import platform
 import subprocess
+from pprint import pformat
 from urllib.parse import urlparse
-
 import colorama
+import pkg_resources
 from tldextract import tldextract
 from youtube_dl import YoutubeDL
 
@@ -94,10 +95,7 @@ class MusicDL(object):
 
         """ Print version """
 
-        version_file = os.path.abspath(os.path.basename(__file__) + '/../VERSION')
-        with open(version_file) as f:
-            version = f.read().strip()
-        logger.info('music-dl {}'.format(version))
+        logger.info(pkg_resources.require("music-dl")[0])
 
         """ Validate parameters """
 

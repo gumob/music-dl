@@ -5,20 +5,14 @@ import argparse
 import os
 
 import clipboard
+import pkg_resources
 
 from music_dl.MusicDL import MusicDL
 
-
-def version():
-    curdir = os.path.abspath(os.path.dirname(__file__))
-    pardir = os.path.abspath(os.path.join(curdir, os.pardir))
-    version_file = os.path.join(pardir, 'VERSION')
-    with open(version_file, encoding='utf-8') as f:
-        return f.read()
-
+pkg_info = pkg_resources.require("music-dl")[0]
 
 __copyright__ = 'Copyright (C) 2018 Gumob'
-__version__ = version()
+__version__ = pkg_info.version
 __license__ = 'MIT'
 __author__ = 'Gumob'
 __author_email__ = 'hello@gumob.com'
@@ -27,10 +21,6 @@ __url__ = 'http://github.com/gumob/music-dl'
 
 def main():
     # Version
-    version_file = os.path.abspath(os.path.basename(__file__) + '/../VERSION')
-    with open(version_file) as f:
-        progver = f.read().strip()
-    progver = 'music-dl {}'.format(progver)
 
     # Default working directory
     default_dir = os.path.expanduser('~/Music/Downloads')
@@ -40,7 +30,7 @@ def main():
         prog='music-dl',
         description='Music Downloader - Command line tool to download music from YouTube and SoundCloud',
         add_help=False,
-        epilog=progver
+        epilog=pkg_info
     )
     parser.add_argument('-u', '--url', help='URL to download. Without this argument, URL is read from clipboard.', type=str)
     parser.add_argument('-d', '--dir', help='Path to working directory. Default value is {}.'.format(default_dir), type=str)
