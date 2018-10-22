@@ -6,7 +6,6 @@ import logging
 import os
 import platform
 import subprocess
-from pprint import pformat
 from urllib.parse import urlparse
 import colorama
 import pkg_resources

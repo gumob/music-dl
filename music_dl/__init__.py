@@ -17,6 +17,7 @@ __license__ = 'MIT'
 __author__ = 'Gumob'
 __author_email__ = 'hello@gumob.com'
 __url__ = 'http://github.com/gumob/music-dl'
+__all__ = ['main', 'MusicDL']
 
 
 def main():
