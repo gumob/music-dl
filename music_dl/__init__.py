@@ -3,6 +3,7 @@
 
 import argparse
 import os
+from pprint import pformat
 
 import clipboard
 import pkg_resources
@@ -53,7 +54,7 @@ def main():
     args.dir = args.dir if args.dir is not None else default_dir
 
     print()
-    print(args)
+    print(pformat(args))
     print()
     # Execute download
     with MusicDL(
