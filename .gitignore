@@ -130,3 +130,6 @@ fabric.properties
 
 # PyPI
 .pypirc
+
+# Local
+SETUP.md
