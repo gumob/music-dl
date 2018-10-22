@@ -47,7 +47,7 @@ def main():
     parser.add_argument('--open-dir', help='Open download directory after all songs are downloaded.', action='store_true')
     # parser.add_argument('--clear-cache', help='Clear cache directory.', action='store_true')
     parser.add_argument('--verbose', help='Print verbose message.', action='store_true')
-    parser.add_argument('--help', action='help', default=argparse.SUPPRESS, help='Show this help message and exit.')
+    parser.add_argument('--help', action='help', help='Show this help message and exit.')
     args = parser.parse_args()
     args.url = args.url if args.url is not None else clipboard.paste()
     args.dir = args.dir if args.dir is not None else default_dir
