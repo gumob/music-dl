@@ -1,6 +1,7 @@
 clipboard
 colorama
 mutagen
+pathlib
 python-magic
 tldextract
 youtube-dl

@@ -9,26 +9,25 @@ import pkg_resources
 
 from music_dl.MusicDL import MusicDL
 
-pkg_info = pkg_resources.require("music-dl")[0]
-
-__copyright__ = 'Copyright (C) 2018 Gumob'
-__version__ = pkg_info.version
+__version__ = '0.1.5'
 __license__ = 'MIT'
 __author__ = 'Gumob'
 __author_email__ = 'hello@gumob.com'
 __url__ = 'http://github.com/gumob/music-dl'
+__copyright__ = 'Copyright (C) 2018 Gumob'
 __all__ = ['main', 'MusicDL']
 
 
 def main():
     # Version
+    pkg_info = pkg_resources.require("music_dl")[0]
 
     # Default working directory
     default_dir = os.path.expanduser('~/Music/Downloads')
 
     # Parse arguments
     parser = argparse.ArgumentParser(
-        prog='music-dl',
+        prog='music_dl',
         description='Music Downloader - Command line tool to download music from YouTube and SoundCloud',
         add_help=False,
         epilog=pkg_info

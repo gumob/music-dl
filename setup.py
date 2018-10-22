@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
-
+import re
 from os import path
 from pathlib import Path
 
@@ -11,6 +11,10 @@ except ImportError:
 
 from setuptools import setup, find_packages
 
+root_dir = path.abspath(path.dirname(__file__))
+
+package_name = 'music_dl'
+
 
 def read_file(filename):
     here = path.abspath(path.dirname(__file__))
@@ -20,21 +24,36 @@ def read_file(filename):
 
 def requirements(filename):
     """Parse requirements from requirements.txt."""
-    path = str(Path(filename))
-    reqs = parse_requirements(path, session=False)
-    return [str(req.req) for req in reqs]
+    req_file = str(Path(filename))
+    req_list = parse_requirements(req_file, session=False)
+    return [str(req.req) for req in req_list]
 
+
+with open(path.join(root_dir, package_name, '__init__.py')) as f:
+    init_text = f.read()
+    version = re.search(r'__version__\s*=\s*[\'\"](.+?)[\'\"]', init_text).group(1)
+    license = re.search(r'__license__\s*=\s*[\'\"](.+?)[\'\"]', init_text).group(1)
+    author = re.search(r'__author__\s*=\s*[\'\"](.+?)[\'\"]', init_text).group(1)
+    author_email = re.search(r'__author_email__\s*=\s*[\'\"](.+?)[\'\"]', init_text).group(1)
+    url = re.search(r'__url__\s*=\s*[\'\"](.+?)[\'\"]', init_text).group(1)
+    copyright = re.search(r'__copyright__\s*=\s*[\'\"](.+?)[\'\"]', init_text).group(1)
+
+assert version
+assert license
+assert author
+assert author_email
+assert url
 
 setup(
-    name='music-dl',
-    version='0.1.4',
+    name=package_name,
+    version=version,
     description='Command line tool to download music from YouTube and SoundCloud',
     long_description=read_file('README.md'),
-    url='https://github.com/gumob/music-dl',
-    author='Gumob',
-    license='MIT',
-    keywords=['youtube', 'soundcloud', 'download', 'mp3', 'm4a', 'flac'],
-    author_email='hello@gumob.com',
+    url=url,
+    author=author,
+    license=license,
+    keywords=['youtube', 'soundcloud', 'download', 'mp3', 'm4a', 'flac', 'youtube-dl', 'youtubedl'],
+    author_email=author_email,
     classifiers=[
         'Development Status :: 3 - Alpha',
         'License :: OSI Approved :: MIT License',
