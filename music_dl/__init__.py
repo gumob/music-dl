@@ -52,6 +52,9 @@ def main():
     args.url = args.url if args.url is not None else clipboard.paste()
     args.dir = args.dir if args.dir is not None else default_dir
 
+    print()
+    print(args)
+    print()
     # Execute download
     with MusicDL(
             download_url=args.url,
