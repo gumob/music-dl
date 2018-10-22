@@ -64,16 +64,16 @@ setup(
     python_requires='>=3.4',
     platforms=['posix'],
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),
-    # install_requires=requirements('requirements.txt'),
-    install_requires=[
-        'clipboard',
-        'colorama',
-        'mutagen',
-        'pathlib',
-        'python-magic',
-        'tldextract',
-        'youtube-dl'
-    ],
+    install_requires=requirements('requirements.txt'),
+    # install_requires=[
+    #     'clipboard',
+    #     'colorama',
+    #     'mutagen',
+    #     'pathlib',
+    #     'python-magic',
+    #     'tldextract',
+    #     'youtube-dl'
+    # ],
     entry_points={
         'console_scripts': [
             'music-dl=music_dl:__init__.main',
