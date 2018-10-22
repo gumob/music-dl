@@ -3,7 +3,6 @@
 
 import argparse
 import os
-from pprint import pformat
 
 import clipboard
 import pkg_resources
@@ -45,7 +44,7 @@ def main():
     parser.add_argument('--no-album-artist', help='Forbid adding album artist to audio metadata.', action='store_true')
     parser.add_argument('--no-composer', help='Forbid adding composer to audio metadata.', action='store_true')
     parser.add_argument('--no-compilation', help='Forbid adding part of compilation flag to audio metadata.', action='store_true')
-    parser.add_argument('--open-dir', help='Open download directory after all songs are downloaded.', action='store_false')
+    parser.add_argument('--open-dir', help='Open download directory after all songs are downloaded.', action='store_true')
     # parser.add_argument('--clear-cache', help='Clear cache directory.', action='store_true')
     parser.add_argument('--verbose', help='Print verbose message.', action='store_true')
     parser.add_argument('--help', action='help', default=argparse.SUPPRESS, help='Show this help message and exit.')
@@ -53,9 +52,6 @@ def main():
     args.url = args.url if args.url is not None else clipboard.paste()
     args.dir = args.dir if args.dir is not None else default_dir
 
-    print()
-    print(pformat(args))
-    print()
     # Execute download
     mdl = MusicDL(
             download_url=args.url,
