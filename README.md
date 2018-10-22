@@ -129,7 +129,7 @@ $ music-dl --url https://soundcloud.com/artist_id/sets/playlist_id \
 
 # Known Issues
 
-- If you requested an official YouTube playlist (aka YouTube Mix), downloaded songs are different from the playlist displayed on your browser, except for the first song. This is caused that YouTube generates random playlist for each requests.<br>
+- If you requested an official YouTube playlist (aka YouTube Mix), downloaded songs are different from the playlist displayed on your browser, except for the first song. This is caused that YouTube generates a random playlist for each request.<br>
 If you request to resume downloading the same playlist, the consistency of track numbers registered in the metadata will be lost.
 
 
