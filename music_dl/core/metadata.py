@@ -112,7 +112,7 @@ class MetadataEditor(object):
                     image_file=image_file
                 )
 
-    logger.info('Done')
+        logger.info('Done.')
 
     def __update_tag(self, download_dir, audio_file, image_file,
                      song_title=None, album_title=None, album_artist=None, album_composer=None,
