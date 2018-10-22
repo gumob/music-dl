@@ -94,7 +94,7 @@ class MusicDL(object):
 
         """ Print version """
 
-        logger.info(pkg_resources.require("music-dl")[0])
+        logger.info(pkg_resources.require("music_dl")[0])
 
         """ Validate parameters """
 
