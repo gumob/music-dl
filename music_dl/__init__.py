@@ -43,7 +43,6 @@ def main():
     parser._optionals.title = 'Optional arguments'
     argparse._HelpAction(option_strings=['-h', '--help'], dest='help', default='==SUPPRESS==', help='Show this help message and exit.')
 
-    # Add Argument
     # parser.add_argument('-u', '--url', action='store', type=str,
     #                     help='URL to download. Without this argument, URL is read from clipboard.')
     # parser.add_argument('-d', '--dir', action='store', type=str,
@@ -72,14 +71,14 @@ def main():
     #                     help='Open download directory after all songs are downloaded.')
     # parser.add_argument('--clear-cache', action='store_true',
     #                     help='Clear cache directory.')
-    parser.add_argument('--verbose', action='store_true',
-                        help='Print verbose message.')
-    parser.add_argument('-h', '--help', action='help', default=argparse.SUPPRESS,
-                        help='Show this help message and exit.')
-    # parser.format_help()
-    args = parser.parse_args()
-    args.url = args.url if args.url is not None else clipboard.paste()
-    args.dir = args.dir if args.dir is not None else default_dir
+    # parser.add_argument('--verbose', action='store_true',
+    #                     help='Print verbose message.')
+    # parser.add_argument('-h', '--help', action='help', default=argparse.SUPPRESS,
+    #                     help='Show this help message and exit.')
+    #
+    # args = parser.parse_args()
+    # args.url = args.url if args.url is not None else clipboard.paste()
+    # args.dir = args.dir if args.dir is not None else default_dir
 
     # Execute download
     mdl = MusicDL(
