@@ -9,7 +9,7 @@ import pkg_resources
 
 from music_dl.MusicDL import MusicDL
 
-__version__ = '0.1.17'
+__version__ = '0.1.18'
 __license__ = 'MIT'
 __author__ = 'Gumob'
 __author_email__ = 'hello@gumob.com'
@@ -34,7 +34,7 @@ def main():
                     usage, actions, groups, prefix)
 
     parser = argparse.ArgumentParser(
-        # prog='music_dl',
+        prog='music-dl',
         description='Music Downloader - Command line tool to download music from YouTube and SoundCloud',
         add_help=True,
         epilog=pkg_info,
