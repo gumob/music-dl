@@ -1,4 +1,5 @@
 
+[![PyPI version](https://badge.fury.io/py/music-dl.svg)](https://badge.fury.io/py/music-dl)
 ![Python](https://img.shields.io/badge/Python-3.4%20%7C%203.5%20%7C%203.6-blue.svg)
 ![System](https://img.shields.io/badge/System-Mac%20OS%20X-brightgreen.svg)
 ![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
