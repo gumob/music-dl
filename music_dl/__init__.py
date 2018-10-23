@@ -18,14 +18,6 @@ __copyright__ = 'Copyright (C) 2018 Gumob'
 __all__ = ['main', 'MusicDL']
 
 
-class CapitalisedHelpFormatter(argparse.HelpFormatter):
-    def add_usage(self, usage, actions, groups, prefix=None):
-        if prefix is None:
-            prefix = 'Usage: '
-            return super(CapitalisedHelpFormatter, self).add_usage(
-                usage, actions, groups, prefix)
-
-
 def main():
     # Version
     pkg_info = pkg_resources.require("music_dl")[0]
@@ -33,7 +25,14 @@ def main():
     # Default working directory
     default_dir = os.path.expanduser('~/Music/Downloads')
 
-    # Parse arguments
+    # Argument parser
+    class CapitalisedHelpFormatter(argparse.HelpFormatter):
+        def add_usage(self, usage, actions, groups, prefix=None):
+            if prefix is None:
+                prefix = 'Usage: '
+                return super(CapitalisedHelpFormatter, self).add_usage(
+                    usage, actions, groups, prefix)
+
     parser = argparse.ArgumentParser(
         # prog='music_dl',
         description='Music Downloader - Command line tool to download music from YouTube and SoundCloud',
@@ -57,6 +56,7 @@ def main():
     # parser.add_argument('--clear-cache', help='Clear cache directory.', action='store_true')
     parser.add_argument('--verbose', help='Print verbose message.', action='store_true')
     # parser.add_argument('-h', '--help', action='help', default=argparse.SUPPRESS, help='Show this help message and exit.')
+    parser.format_help()
     args = parser.parse_args()
     args.url = args.url if args.url is not None else clipboard.paste()
     args.dir = args.dir if args.dir is not None else default_dir
