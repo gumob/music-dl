@@ -18,6 +18,14 @@ __copyright__ = 'Copyright (C) 2018 Gumob'
 __all__ = ['main', 'MusicDL']
 
 
+class CapitalisedHelpFormatter(argparse.HelpFormatter):
+    def add_usage(self, usage, actions, groups, prefix=None):
+        if prefix is None:
+            prefix = 'Usage: '
+            return super(CapitalisedHelpFormatter, self).add_usage(
+                usage, actions, groups, prefix)
+
+
 def main():
     # Version
     pkg_info = pkg_resources.require("music_dl")[0]
@@ -30,7 +38,8 @@ def main():
         # prog='music_dl',
         description='Music Downloader - Command line tool to download music from YouTube and SoundCloud',
         add_help=False,
-        epilog=pkg_info
+        epilog=pkg_info,
+        formatter_class=CapitalisedHelpFormatter,
     )
     parser.add_argument('-u', '--url', help='URL to download. Without this argument, URL is read from clipboard.', type=str)
     parser.add_argument('-d', '--dir', help='Path to working directory. Default value is {}.'.format(default_dir), type=str)
