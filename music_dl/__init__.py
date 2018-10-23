@@ -10,7 +10,7 @@ import pkg_resources
 
 from music_dl.MusicDL import MusicDL
 
-__version__ = '0.1.34'
+__version__ = '0.1.35'
 __license__ = 'MIT'
 __author__ = 'Gumob'
 __author_email__ = 'hello@gumob.com'
@@ -22,7 +22,7 @@ __all__ = ['main', 'MusicDL']
 def main():
     # Parse Argument
     pkg_info = pkg_resources.require("music_dl")[0]
-    epilog = '{} {}'.format(pkg_info.project_name, pkg_info.version)
+    prg = '{} {}'.format(pkg_info.project_name, pkg_info.version)
     print(type(pkg_info))
     print(vars(pkg_info))
     print(pformat(pkg_info))
@@ -37,12 +37,12 @@ def main():
                     usage, actions, groups, prefix)
 
     parser = argparse.ArgumentParser(
-        # prog='music-dl',
+        prog=prg,
         description='Music Downloader - Command line tool to download music from YouTube and SoundCloud',
         add_help=True,
         # add_help=False,
-        epilog=epilog,
-        # formatter_class=CapitalisedHelpFormatter,
+        epilog='',
+        formatter_class=CapitalisedHelpFormatter,
     )
 
     # parser._positionals.title = 'Positional arguments'
