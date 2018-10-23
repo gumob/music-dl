@@ -9,7 +9,7 @@ import pkg_resources
 
 from music_dl.MusicDL import MusicDL
 
-__version__ = '0.1.23'
+__version__ = '0.1.24'
 __license__ = 'MIT'
 __author__ = 'Gumob'
 __author_email__ = 'hello@gumob.com'
@@ -44,32 +44,32 @@ def main():
     argparse._HelpAction(option_strings=['-h', '--help'], dest='help', default='==SUPPRESS==', help='Show this help message and exit.')
 
     # Add Argument
-    parser.add_argument('-u', '--url', action='store', type=str,
-                        help='URL to download. Without this argument, URL is read from clipboard.')
-    parser.add_argument('-d', '--dir', action='store', type=str,
-                        help='Path to working directory. Default value is {}.'.format(default_dir))
-    parser.add_argument('-ac', '--codec', action='store', type=str, default='m4a', choices=['m4a', 'mp3', 'flac'],
-                        help='Preferred audio codec. [available=m4a,mp3,flac default=m4a]')
-    parser.add_argument('-ab', '--bitrate', action='store', type=int, default=198,
-                        help='Preferred audio bitrate. [default=198]')
-    parser.add_argument('-ps', '--playlist-start', action='store', type=int, default=1,
-                        help='Index specifying playlist item to start at. [default=1 (index of first song on playlist)]')
-    parser.add_argument('-pe', '--playlist-end', action='store', type=int, default=0,
-                        help='Index specifying playlist item to end at. [default=0 (index of last song on playlist)]')
-    parser.add_argument('--no-artwork', action='store_true',
-                        help='Forbid adding artwork to audio metadata.')
-    parser.add_argument('--no-track-number', action='store_true',
-                        help='Forbid adding track number to audio metadata.')
-    parser.add_argument('--no-album-title', action='store_true',
-                        help='Forbid adding album title to audio metadata.')
-    parser.add_argument('--no-album-artist', action='store_true',
-                        help='Forbid adding album artist to audio metadata.')
-    parser.add_argument('--no-composer', action='store_true',
-                        help='Forbid adding composer to audio metadata.')
-    parser.add_argument('--no-compilation', action='store_true',
-                        help='Forbid adding part of compilation flag to audio metadata.')
-    parser.add_argument('--open-dir', action='store_true',
-                        help='Open download directory after all songs are downloaded.')
+    # parser.add_argument('-u', '--url', action='store', type=str,
+    #                     help='URL to download. Without this argument, URL is read from clipboard.')
+    # parser.add_argument('-d', '--dir', action='store', type=str,
+    #                     help='Path to working directory. Default value is {}.'.format(default_dir))
+    # parser.add_argument('-ac', '--codec', action='store', type=str, default='m4a', choices=['m4a', 'mp3', 'flac'],
+    #                     help='Preferred audio codec. [available=m4a,mp3,flac default=m4a]')
+    # parser.add_argument('-ab', '--bitrate', action='store', type=int, default=198,
+    #                     help='Preferred audio bitrate. [default=198]')
+    # parser.add_argument('-ps', '--playlist-start', action='store', type=int, default=1,
+    #                     help='Index specifying playlist item to start at. [default=1 (index of first song on playlist)]')
+    # parser.add_argument('-pe', '--playlist-end', action='store', type=int, default=0,
+    #                     help='Index specifying playlist item to end at. [default=0 (index of last song on playlist)]')
+    # parser.add_argument('--no-artwork', action='store_true',
+    #                     help='Forbid adding artwork to audio metadata.')
+    # parser.add_argument('--no-track-number', action='store_true',
+    #                     help='Forbid adding track number to audio metadata.')
+    # parser.add_argument('--no-album-title', action='store_true',
+    #                     help='Forbid adding album title to audio metadata.')
+    # parser.add_argument('--no-album-artist', action='store_true',
+    #                     help='Forbid adding album artist to audio metadata.')
+    # parser.add_argument('--no-composer', action='store_true',
+    #                     help='Forbid adding composer to audio metadata.')
+    # parser.add_argument('--no-compilation', action='store_true',
+    #                     help='Forbid adding part of compilation flag to audio metadata.')
+    # parser.add_argument('--open-dir', action='store_true',
+    #                     help='Open download directory after all songs are downloaded.')
     # parser.add_argument('--clear-cache', action='store_true',
     #                     help='Clear cache directory.')
     parser.add_argument('--verbose', action='store_true',
