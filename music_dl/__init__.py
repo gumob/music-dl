@@ -9,7 +9,7 @@ import pkg_resources
 
 from music_dl.MusicDL import MusicDL
 
-__version__ = '0.1.20'
+__version__ = '0.1.0-rc1'
 __license__ = 'MIT'
 __author__ = 'Gumob'
 __author_email__ = 'hello@gumob.com'
