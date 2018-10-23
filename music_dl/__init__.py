@@ -3,13 +3,14 @@
 
 import argparse
 import os
+from pprint import pformat
 
 import clipboard
 import pkg_resources
 
 from music_dl.MusicDL import MusicDL
 
-__version__ = '0.1.32'
+__version__ = '0.1.33'
 __license__ = 'MIT'
 __author__ = 'Gumob'
 __author_email__ = 'hello@gumob.com'
@@ -22,7 +23,10 @@ def main():
     # Parse Argument
     pkg_info = pkg_resources.require("music_dl")[0]
     print(type(pkg_info))
+    print(vars(pkg_info))
+    print(pformat(pkg_info))
     default_dir = os.path.expanduser('~/Music/Downloads')
+
 
     class CapitalisedHelpFormatter(argparse.HelpFormatter):
         def add_usage(self, usage, actions, groups, prefix=None):
