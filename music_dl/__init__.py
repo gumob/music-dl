@@ -9,7 +9,7 @@ import pkg_resources
 
 from music_dl.MusicDL import MusicDL
 
-__version__ = '0.1.20'
+__version__ = '0.1.0-rc1'
 __license__ = 'MIT'
 __author__ = 'Gumob'
 __author_email__ = 'hello@gumob.com'
@@ -41,7 +41,7 @@ def main():
 
     parser._positionals.title = 'Positional arguments'
     parser._optionals.title = 'Optional arguments'
-    argparse._HelpAction(option_strings=['-h', '--help'], dest='help', nargs=0, const=None, default='==SUPPRESS==', type=None, choices=None, help='Show this help message and exit.', metavar=None)
+    argparse._HelpAction(option_strings=['-h', '--help'], dest='help', default='==SUPPRESS==', help='Show this help message and exit.')
 
     # Add Argument
     parser.add_argument('-u', '--url', action='store', type=str,
