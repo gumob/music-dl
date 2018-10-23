@@ -34,7 +34,7 @@ def main():
                     usage, actions, groups, prefix)
 
     parser = argparse.ArgumentParser(
-        # prog='music_dl',
+        prog='music-dl',
         description='Music Downloader - Command line tool to download music from YouTube and SoundCloud',
         add_help=True,
         epilog=pkg_info,
