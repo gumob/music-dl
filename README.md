@@ -37,7 +37,7 @@ Music Downloader offers following options.
 ```
 $ music-dl --help
 
-Music Downloader 0.2.0
+Music Downloader 0.2.1
 
 Usage: music-dl --url http://youtube.com/watch?v=<video_id>&list=<playlist_id>
                 --dir ~/Music/Download
@@ -47,7 +47,7 @@ Usage: music-dl --url http://youtube.com/watch?v=<video_id>&list=<playlist_id>
                 --no-compilation
 
 Optional Arguments:
-  -u, --url <str>                   URL to download. (Default: Clipboard Value) [Default: None]
+  -u, --url <str>                   URL to download. [Default: Clipboard Value]
   -d, --dir <str>                   Path to working directory. [Default: /Users/kojirof/Music/Downloads]
   -c, --codec <str> [m4a,mp3,flac]  Preferred audio codec. [Default: m4a]
   -b, --bitrate <int>               Preferred audio bitrate. [Default: 198]

@@ -28,7 +28,9 @@ def parse_args():
         def error(self, message):
             self.print_usage(sys.stderr)
             args = {'prog': self.prog, 'message': message}
-            msg = colorama.Fore.RED + _('\n[%(prog)s] Error: %(message)s\n\n') % args
+            # msg = colorama.Fore.RED + _('\n[%(prog)s] Error: %(message)s\n') % args + colorama.Style.RESET_ALL
+            msg = colorama.Fore.RED + _('\nError: %(message)s\n\n') % args + colorama.Style.RESET_ALL
+            msg += 'Type "music-dl --help" to show help. \n\n'
             self.exit(2, msg)
 
     class CustomFormatter(ArgumentDefaultsHelpFormatter, RawTextHelpFormatter):
@@ -81,7 +83,7 @@ def parse_args():
                 if action.default is not SUPPRESS:
                     defaulting_nargs = [OPTIONAL, ZERO_OR_MORE]
                     if action.option_strings or action.nargs in defaulting_nargs:
-                        if not isinstance(action.default, bool):
+                        if not isinstance(action.default, bool) and action.default is not None:
                             help_msg += ' [Default: %(default)s]'
 
             return help_msg
@@ -110,7 +112,7 @@ Usage: %(prog)s --url http://youtube.com/watch?v=<video_id>&list=<playlist_id>
     parser._optionals.title = 'Optional Arguments'
 
     parser.add_argument('-u', '--url', action='store', type=str, metavar='<str>',
-                        help='URL to download. (Default: Clipboard Value)')
+                        help='URL to download. [Default: Clipboard Value]')
     parser.add_argument('-d', '--dir', action='store', type=str, metavar='<str>', default=default_dir,
                         help='Path to working directory.')
     parser.add_argument('-c', '--codec', action='store', type=str, metavar='<str> [m4a,mp3,flac]', default='m4a', choices=['m4a', 'mp3', 'flac'],
