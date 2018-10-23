@@ -9,7 +9,7 @@ import pkg_resources
 
 from music_dl.MusicDL import MusicDL
 
-__version__ = '0.1.22'
+__version__ = '0.1.23'
 __license__ = 'MIT'
 __author__ = 'Gumob'
 __author_email__ = 'hello@gumob.com'
@@ -96,7 +96,7 @@ def main():
         no_composer=args.no_composer,
         no_compilation=args.no_compilation,
         open_dir=args.open_dir,
-        clear_cache=args.clear_cache,
+        # clear_cache=args.clear_cache,
         verbose=args.verbose
     )
     mdl.download()
