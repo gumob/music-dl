@@ -96,7 +96,7 @@ def main():
         no_composer=args.no_composer,
         no_compilation=args.no_compilation,
         open_dir=args.open_dir,
-        clear_cache=args.clear_cache,
+        # clear_cache=args.clear_cache,
         verbose=args.verbose
     )
     mdl.download()
