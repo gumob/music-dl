@@ -9,7 +9,7 @@ import pkg_resources
 
 from music_dl.MusicDL import MusicDL
 
-__version__ = '0.1.30'
+__version__ = '0.1.32'
 __license__ = 'MIT'
 __author__ = 'Gumob'
 __author_email__ = 'hello@gumob.com'
@@ -21,6 +21,7 @@ __all__ = ['main', 'MusicDL']
 def main():
     # Parse Argument
     pkg_info = pkg_resources.require("music_dl")[0]
+    print(type(pkg_info))
     default_dir = os.path.expanduser('~/Music/Downloads')
 
     class CapitalisedHelpFormatter(argparse.HelpFormatter):
@@ -35,7 +36,7 @@ def main():
         description='Music Downloader - Command line tool to download music from YouTube and SoundCloud',
         add_help=True,
         # add_help=False,
-        epilog=pkg_info,
+        # epilog=pkg_info,
         # formatter_class=CapitalisedHelpFormatter,
     )
 
