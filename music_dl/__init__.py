@@ -10,7 +10,7 @@ import pkg_resources
 
 from music_dl.MusicDL import MusicDL
 
-__version__ = '0.1.35'
+__version__ = '0.1.36'
 __license__ = 'MIT'
 __author__ = 'Gumob'
 __author_email__ = 'hello@gumob.com'
@@ -22,12 +22,11 @@ __all__ = ['main', 'MusicDL']
 def main():
     # Parse Argument
     pkg_info = pkg_resources.require("music_dl")[0]
-    prg = '{} {}'.format(pkg_info.project_name, pkg_info.version)
+    epilog = '{} {}\n'.format(pkg_info.project_name, pkg_info.version)
     print(type(pkg_info))
     print(vars(pkg_info))
     print(pformat(pkg_info))
     default_dir = os.path.expanduser('~/Music/Downloads')
-
 
     class CapitalisedHelpFormatter(argparse.HelpFormatter):
         def add_usage(self, usage, actions, groups, prefix=None):
@@ -37,17 +36,17 @@ def main():
                     usage, actions, groups, prefix)
 
     parser = argparse.ArgumentParser(
-        prog=prg,
+        # prog=prg,
         description='Music Downloader - Command line tool to download music from YouTube and SoundCloud',
-        add_help=True,
+        # add_help=True,
         # add_help=False,
-        epilog='',
+        epilog=epilog,
         formatter_class=CapitalisedHelpFormatter,
     )
 
-    # parser._positionals.title = 'Positional arguments'
-    # parser._optionals.title = 'Optional arguments'
-    # argparse._HelpAction(option_strings=['-h', '--help'], dest='help', default='==SUPPRESS==', help='Show this help message and exit.')
+    parser._positionals.title = 'Positional arguments'
+    parser._optionals.title = 'Optional arguments'
+    argparse._HelpAction(option_strings=['-h', '--help'], dest='help', default='==SUPPRESS==', help='Show this help message and exit.')
 
     # parser.add_argument('-u', '--url', action='store', type=str,
     #                     help='URL to download. Without this argument, URL is read from clipboard.')
