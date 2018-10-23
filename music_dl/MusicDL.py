@@ -7,6 +7,7 @@ import os
 import platform
 import subprocess
 from urllib.parse import urlparse
+
 import colorama
 import pkg_resources
 from tldextract import tldextract
@@ -16,8 +17,8 @@ from music_dl.core.error import PlaylistParameterException, PlaylistPreprocessEx
 from music_dl.core.metadata import MetadataEditor
 from music_dl.core.playlist import Playlist
 from music_dl.core.youtube_dl import YDLHelper
-from music_dl.util.dir import is_path_exists_or_creatable
-from music_dl.util.log import logger
+from music_dl.lib.dir import is_path_exists_or_creatable
+from music_dl.lib.log import logger
 
 
 class MusicDL(object):
@@ -104,13 +105,13 @@ class MusicDL(object):
             # Validate download url
             url_parsed = urlparse(self.download_url)
             if not url_parsed.scheme.startswith('http'):
-                raise DirectoryException('Invalid URL. URL must start with http*.')
+                raise DirectoryException('Invalid URL. URL must start with http*. Input value is {}'.format(self.download_url))
             tld_parsed = tldextract.extract(self.download_url)
             if not (tld_parsed.domain in ['youtube', 'soundcloud']):
-                raise DirectoryException('Invalid URL. Music Downloader supports only YouTube and SoundCloud.')
+                raise DirectoryException('Invalid URL. Music Downloader supports only YouTube and SoundCloud. Input value is {}'.format(self.download_url))
             # Validate download directory
             if not is_path_exists_or_creatable(self.working_dir):
-                raise DirectoryException('Invalid directory. Please specify valid download directory.')
+                raise DirectoryException('Invalid directory. Please specify valid download directory. Input value is {}'.format(self.working_dir))
 
         except DirectoryException as e:
             logger.error(e.message)

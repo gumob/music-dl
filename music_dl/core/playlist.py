@@ -11,7 +11,7 @@ from youtube_dl.utils import sanitize_filename
 
 from music_dl.core.error import PlaylistParameterException, PlaylistPreprocessException, PlaylistDownloadException
 from music_dl.core.youtube_dl import YDLQueueStatus, YDLHelper
-from music_dl.util.log import logger
+from music_dl.lib.log import logger
 
 
 class Playlist(object):

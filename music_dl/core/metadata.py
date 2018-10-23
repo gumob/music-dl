@@ -9,8 +9,8 @@ from mutagen import mp4, id3, flac, File
 from youtube_dl.utils import sanitize_filename
 
 from music_dl.core.error import InvalidMimeTypeException, InvalidDataException
+from music_dl.lib.log import logger
 from music_dl.lib.util import contains_at_least
-from music_dl.util.log import logger
 
 
 class MetadataEditor(object):
