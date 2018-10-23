@@ -104,10 +104,10 @@ class MusicDL(object):
             # Validate download url
             url_parsed = urlparse(self.download_url)
             if not url_parsed.scheme.startswith('http'):
-                raise DirectoryException('Invalid url. URL must start with http*.')
+                raise DirectoryException('Invalid URL. URL must start with http*.')
             tld_parsed = tldextract.extract(self.download_url)
             if not (tld_parsed.domain in ['youtube', 'soundcloud']):
-                raise DirectoryException('Invalid url. Music Downloader supports only YouTube and SoundCloud.')
+                raise DirectoryException('Invalid URL. Music Downloader supports only YouTube and SoundCloud.')
             # Validate download directory
             if not is_path_exists_or_creatable(self.working_dir):
                 raise DirectoryException('Invalid directory. Please specify valid download directory.')
