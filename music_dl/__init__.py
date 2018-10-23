@@ -78,8 +78,8 @@ def main():
                         help='Show this help message and exit.')
     # parser.format_help()
     args = parser.parse_args()
-    args.url = args.get('url', clipboard.paste())
-    args.dir = args.get('dir', default_dir)
+    args.url = args.url if args.url is not None else clipboard.paste()
+    args.dir = args.dir if args.dir is not None else default_dir
 
     # Execute download
     mdl = MusicDL(
