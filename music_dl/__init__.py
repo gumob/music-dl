@@ -9,7 +9,7 @@ import pkg_resources
 
 from music_dl.MusicDL import MusicDL
 
-__version__ = '0.1.19'
+__version__ = '0.1.20'
 __license__ = 'MIT'
 __author__ = 'Gumob'
 __author_email__ = 'hello@gumob.com'
@@ -19,13 +19,10 @@ __all__ = ['main', 'MusicDL']
 
 
 def main():
-    # Version
+    # Parse Argument
     pkg_info = pkg_resources.require("music_dl")[0]
-
-    # Default working directory
     default_dir = os.path.expanduser('~/Music/Downloads')
 
-    # Argument parser
     class CapitalisedHelpFormatter(argparse.HelpFormatter):
         def add_usage(self, usage, actions, groups, prefix=None):
             if prefix is None:
@@ -41,6 +38,12 @@ def main():
         epilog=pkg_info,
         formatter_class=CapitalisedHelpFormatter,
     )
+
+    parser._positionals.title = 'Positional arguments'
+    parser._optionals.title = 'Optional arguments'
+    argparse._HelpAction(option_strings=['-h', '--help'], dest='help', nargs=0, const=None, default='==SUPPRESS==', type=None, choices=None, help='Show this help message and exit.', metavar=None)
+
+    # Add Argument
     parser.add_argument('-u', '--url', action='store', type=str,
                         help='URL to download. Without this argument, URL is read from clipboard.')
     parser.add_argument('-d', '--dir', action='store', type=str,
@@ -73,7 +76,7 @@ def main():
                         help='Print verbose message.')
     parser.add_argument('-h', '--help', action='help', default=argparse.SUPPRESS,
                         help='Show this help message and exit.')
-    parser.format_help()
+    # parser.format_help()
     args = parser.parse_args()
     args.url = args.get('url', clipboard.paste())
     args.dir = args.get('dir', default_dir)
