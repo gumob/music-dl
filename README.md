@@ -37,7 +37,7 @@ Music Downloader offers following options.
 ```
 $ music-dl --help
 
-Music Downloader 0.2.0
+Music Downloader 0.2.1
 
 Usage: music-dl --url http://youtube.com/watch?v=<video_id>&list=<playlist_id>
                 --dir ~/Music/Download
