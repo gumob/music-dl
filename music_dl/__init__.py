@@ -9,7 +9,7 @@ import pkg_resources
 
 from music_dl.MusicDL import MusicDL
 
-__version__ = '0.1.12'
+__version__ = '0.1.13'
 __license__ = 'MIT'
 __author__ = 'Gumob'
 __author_email__ = 'hello@gumob.com'
@@ -27,14 +27,14 @@ def main():
 
     # Parse arguments
     parser = argparse.ArgumentParser(
-        prog='music_dl',
+        # prog='music_dl',
         description='Music Downloader - Command line tool to download music from YouTube and SoundCloud',
         add_help=False,
         epilog=pkg_info
     )
     parser.add_argument('-u', '--url', help='URL to download. Without this argument, URL is read from clipboard.', type=str)
     parser.add_argument('-d', '--dir', help='Path to working directory. Default value is {}.'.format(default_dir), type=str)
-    parser.add_argument('-ac', '--codec', help='Preferred audio codec. [available=m4a,mp3,flac default=m4a]', type=str, default='m4a')
+    parser.add_argument('-ac', '--codec', help='Preferred audio codec. [available=m4a,mp3,flac default=m4a]', type=str, default='m4a', choices=['m4a', 'mp3', 'flac'])
     parser.add_argument('-ab', '--bitrate', help='Preferred audio bitrate. [default=198]', type=int, default=198)
     parser.add_argument('-ps', '--playlist-start', help='Index specifying playlist item to start at. [default=1 (index of first song on playlist)]', type=int, default=1)
     parser.add_argument('-pe', '--playlist-end', help='Index specifying playlist item to end at. [default=0 (index of last song on playlist)]', type=int, default=0)
@@ -47,26 +47,26 @@ def main():
     parser.add_argument('--open-dir', help='Open download directory after all songs are downloaded.', action='store_true')
     # parser.add_argument('--clear-cache', help='Clear cache directory.', action='store_true')
     parser.add_argument('--verbose', help='Print verbose message.', action='store_true')
-    parser.add_argument('--help', action='help', help='Show this help message and exit.')
+    parser.add_argument('-h', '--help', action='help', default=argparse.SUPPRESS, help='Show this help message and exit.')
     args = parser.parse_args()
     args.url = args.url if args.url is not None else clipboard.paste()
     args.dir = args.dir if args.dir is not None else default_dir
 
     # Execute download
     mdl = MusicDL(
-            download_url=args.url,
-            working_dir=args.dir,
-            audio_codec=args.codec,
-            audio_bitrate=args.bitrate,
-            playlist_start=int(args.playlist_start),
-            playlist_end=int(args.playlist_end),
-            no_artwork=args.no_artwork,
-            no_album_title=args.no_album_title,
-            no_album_artist=args.no_album_artist,
-            no_track_number=args.no_track_number,
-            no_composer=args.no_composer,
-            no_compilation=args.no_compilation,
-            open_dir=args.open_dir,
-            verbose=args.verbose
+        download_url=args.url,
+        working_dir=args.dir,
+        audio_codec=args.codec,
+        audio_bitrate=args.bitrate,
+        playlist_start=int(args.playlist_start),
+        playlist_end=int(args.playlist_end),
+        no_artwork=args.no_artwork,
+        no_album_title=args.no_album_title,
+        no_album_artist=args.no_album_artist,
+        no_track_number=args.no_track_number,
+        no_composer=args.no_composer,
+        no_compilation=args.no_compilation,
+        open_dir=args.open_dir,
+        verbose=args.verbose
     )
     mdl.download()
