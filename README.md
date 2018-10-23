@@ -37,25 +37,34 @@ Music Downloader offers following options.
 ```
 $ music-dl --help
 
--u, --url               URL to download. Without this argument, URL is read
-                        from clipboard.
--d, --dir               Path to working directory. [default="~/Music/Downloads"]
--ac, --codec            Preferred audio codec.
-                        [available=m4a,mp3,flac default=m4a]
--ab, --bitrate'         Preferred audio bitrate. [default=198]
--ps, --playlist-start   Index specifying playlist item to start at.
-                        [default=1 (index of first song on playlist)]
--pe, --playlist-end     Index specifying playlist item to end at.
-                        [default=0 (index of last song on playlist)]
---no-artwork            Forbid adding artwork to audio metadata.
---no-track-number       Forbid adding track number to audio metadata.
---no-album-title        Forbid adding album title to audio metadata.
---no-album-artist       Forbid adding album artist to audio metadata.
---no-composer           Forbid adding composer to audio metadata.
---no-compilation        Forbid adding part of compilation flag to audio metadata.
---open-dir              Open download directory after all songs are downloaded.
---verbose               Print verbose message.
---help                  Print this help text and exit.
+Music Downloader 0.2.0
+
+Usage: music-dl --url http://youtube.com/watch?v=<video_id>&list=<playlist_id>
+                --dir ~/Music/Download
+                --codec m4a
+                --bitrate 128
+                --no-track-number
+                --no-compilation
+
+Optional Arguments:
+  -u, --url <str>                   URL to download. (Default: Clipboard Value) [Default: None]
+  -d, --dir <str>                   Path to working directory. [Default: /Users/kojirof/Music/Downloads]
+  -c, --codec <str> [m4a,mp3,flac]  Preferred audio codec. [Default: m4a]
+  -b, --bitrate <int>               Preferred audio bitrate. [Default: 198]
+  -s, --start <int>                 Index specifying playlist item to start at.
+                                    Default value is index of first song on playlist. [Default: 1]
+  -e, --end <int>                   Index specifying playlist item to end at.
+                                    Default value is index of last song on playlist. [Default: 0]
+  --no-artwork                      Forbid adding artwork to audio metadata.
+  --no-track-number                 Forbid adding track number to audio metadata.
+  --no-album-title                  Forbid adding album title to audio metadata.
+  --no-album-artist                 Forbid adding album artist to audio metadata.
+  --no-composer                     Forbid adding composer to audio metadata.
+  --no-compilation                  Forbid adding part of compilation flag to audio metadata.
+  --open-dir                        Open download directory after all songs are downloaded.
+  --verbose                         Print verbose message.
+  --help                            Show this help message and exit.
+
 ```
 
 
