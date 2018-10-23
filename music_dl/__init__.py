@@ -4,7 +4,7 @@
 from music_dl.MusicDL import MusicDL
 from music_dl.core.args import parse_args
 
-__version__ = '0.2.0'
+__version__ = '0.2.1'
 __license__ = 'MIT'
 __author__ = 'Gumob'
 __author_email__ = 'hello@gumob.com'
