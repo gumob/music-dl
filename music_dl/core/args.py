@@ -28,7 +28,9 @@ def parse_args():
         def error(self, message):
             self.print_usage(sys.stderr)
             args = {'prog': self.prog, 'message': message}
-            msg = colorama.Fore.RED + _('\n[%(prog)s] Error: %(message)s\n\n') % args
+            # msg = colorama.Fore.RED + _('\n[%(prog)s] Error: %(message)s\n') % args + colorama.Style.RESET_ALL
+            msg = colorama.Fore.RED + _('\nError: %(message)s\n\n') % args + colorama.Style.RESET_ALL
+            msg += 'Type "music-dl --help" to show help. \n\n'
             self.exit(2, msg)
 
     class CustomFormatter(ArgumentDefaultsHelpFormatter, RawTextHelpFormatter):
