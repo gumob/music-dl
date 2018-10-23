@@ -9,7 +9,7 @@ import pkg_resources
 
 from music_dl.MusicDL import MusicDL
 
-__version__ = '0.1.15'
+__version__ = '0.1.16'
 __license__ = 'MIT'
 __author__ = 'Gumob'
 __author_email__ = 'hello@gumob.com'
@@ -23,7 +23,7 @@ def main():
     pkg_info = pkg_resources.require("music_dl")[0]
 
     # Default working directory
-    default_dir = os.path.expanduser('~/Music/Downloads')
+    # default_dir = os.path.expanduser('~/Music/Downloads')
 
     # Argument parser
     class CapitalisedHelpFormatter(argparse.HelpFormatter):
@@ -41,7 +41,7 @@ def main():
         formatter_class=CapitalisedHelpFormatter,
     )
     parser.add_argument('-u', '--url', help='URL to download. Without this argument, URL is read from clipboard.', type=str)
-    parser.add_argument('-d', '--dir', help='Path to working directory. Default value is {}.'.format(default_dir), type=str)
+    parser.add_argument('-d', '--dir', help='Path to working directory. Default value is ~/Music/Downloads.', type=str)
     parser.add_argument('-ac', '--codec', help='Preferred audio codec. [available=m4a,mp3,flac default=m4a]', type=str, default='m4a', choices=['m4a', 'mp3', 'flac'])
     parser.add_argument('-ab', '--bitrate', help='Preferred audio bitrate. [default=198]', type=int, default=198)
     parser.add_argument('-ps', '--playlist-start', help='Index specifying playlist item to start at. [default=1 (index of first song on playlist)]', type=int, default=1)
@@ -59,7 +59,7 @@ def main():
     parser.format_help()
     args = parser.parse_args()
     args.url = args.url if args.url is not None else clipboard.paste()
-    args.dir = args.dir if args.dir is not None else default_dir
+    args.dir = args.dir if args.dir is not None else '~/Music/Downloads'
 
     # Execute download
     mdl = MusicDL(
