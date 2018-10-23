@@ -9,7 +9,7 @@ import pkg_resources
 
 from music_dl.MusicDL import MusicDL
 
-__version__ = '0.1.14'
+__version__ = '0.1.15'
 __license__ = 'MIT'
 __author__ = 'Gumob'
 __author_email__ = 'hello@gumob.com'
@@ -37,7 +37,7 @@ def main():
     parser = argparse.ArgumentParser(
         # prog='music_dl',
         description='Music Downloader - Command line tool to download music from YouTube and SoundCloud',
-        add_help=False,
+        add_help=True,
         epilog=pkg_info,
         formatter_class=CapitalisedHelpFormatter,
     )
@@ -56,7 +56,7 @@ def main():
     parser.add_argument('--open-dir', help='Open download directory after all songs are downloaded.', action='store_true')
     # parser.add_argument('--clear-cache', help='Clear cache directory.', action='store_true')
     parser.add_argument('--verbose', help='Print verbose message.', action='store_true')
-    parser.add_argument('-h', '--help', action='help', default=argparse.SUPPRESS, help='Show this help message and exit.')
+    # parser.add_argument('-h', '--help', action='help', default=argparse.SUPPRESS, help='Show this help message and exit.')
     args = parser.parse_args()
     args.url = args.url if args.url is not None else clipboard.paste()
     args.dir = args.dir if args.dir is not None else default_dir
