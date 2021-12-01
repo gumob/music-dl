@@ -133,7 +133,7 @@ class Playlist(object):
 
         # Determines playlist type
         playlist_extractor = self.playlist_data['extractor'].lower()
-        if playlist_extractor == 'youtube:playlist' or playlist_extractor == 'soundcloud:set':
+        if playlist_extractor == 'youtube:playlist' or playlist_extractor == 'youtube:tab' or playlist_extractor == 'soundcloud:set':
             self.is_playlist = True
             # Define download folder name
             if self.test_id is not None:
