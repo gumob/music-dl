@@ -26,7 +26,10 @@ def requirements(filename):
     """Parse requirements from requirements.txt."""
     req_file = str(Path(filename))
     req_list = parse_requirements(req_file, session=False)
-    return [str(req.req) for req in req_list]
+    try:
+        return [str(req.req) for req in req_list]
+    except:
+        return [str(req.requirement) for req in req_list]
 
 
 with open(path.join(root_dir, package_name, '__init__.py')) as f:
